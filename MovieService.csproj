@@ -94,6 +94,7 @@
       <DependentUpon>MoviesModel.edmx</DependentUpon>
       <LastGenOutput>MoviesModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="MoviesModel.edmx.sql" />
     <Content Include="MoviesModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MoviesModel.edmx</DependentUpon>
@@ -110,9 +111,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Movie.cs">
-      <DependentUpon>MoviesModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Movie.cs" />
     <Compile Include="MoviesModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

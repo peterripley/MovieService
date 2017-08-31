@@ -2,7 +2,6 @@
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 
@@ -10,12 +9,12 @@ namespace MovieService.Controllers
 {
     public class MoviesController : ApiController
     {
-        private MoviesEntities db = new MoviesEntities();
+        private MoviesContext db = new MoviesContext();
 
         // GET: api/Movies
         public IQueryable<Movie> GetMovies()
         {
-            return db.Movies;
+            return db.Movies.Where(m => m.Title != null);
         }
 
         // GET: api/Movies/5
@@ -23,6 +22,7 @@ namespace MovieService.Controllers
         public IHttpActionResult GetMovie(int id)
         {
             Movie movie = db.Movies.Find(id);
+
             if (movie == null)
             {
                 return NotFound();
@@ -86,6 +86,7 @@ namespace MovieService.Controllers
         public IHttpActionResult DeleteMovie(int id)
         {
             Movie movie = db.Movies.Find(id);
+
             if (movie == null)
             {
                 return NotFound();

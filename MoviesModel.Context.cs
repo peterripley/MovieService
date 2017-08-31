@@ -13,19 +13,19 @@ namespace MovieService
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MoviesEntities : DbContext
+    public partial class MoviesContext : DbContext
     {
-        public MoviesEntities()
-            : base("name=MoviesEntities")
+        public MoviesContext()
+            : base("name=MoviesContext")
         {
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-    		base.OnModelCreating(modelBuilder);
+            throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Movie> Movies { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
+        public virtual DbSet<Movie> Movies { get; set; }
     }
 }
